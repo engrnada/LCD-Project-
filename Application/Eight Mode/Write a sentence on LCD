@@ -1,0 +1,51 @@
+/*
+
+ * CLCD_Main.c
+ *
+ *  Created on: Nov 25, 2023
+ *      Author: Nada
+ */
+
+
+#include "CLCD_Config.h"
+#include "CLCD_interface.h"
+#include "CLCD_Private.h"
+#include "DIO_interface.h"
+
+#include "BIT_MATH.h"
+#include "STD_TYPES.h"
+#include <util/delay.h>
+
+
+
+int main (){
+
+	CLCD_Init ();
+
+	while (1){
+		CLCD_SetPosition (1,1);
+		CLCD_SendData ('H');
+		CLCD_SendData ('O');
+		CLCD_SendData ('L');
+		CLCD_SendData ('A');
+		CLCD_SendData ('\n');
+		CLCD_SendData ('A');
+		CLCD_SendData ('m');
+		CLCD_SendData ('i');
+		CLCD_SendData ('g');
+		CLCD_SendData ('o');
+		CLCD_SendData ('s');
+		CLCD_SendData ('!');
+		_delay_ms(1000);
+		CLCD_SetPosition (1,1);
+
+	    CLCD_SendString("Me llamo Nada");
+
+		_delay_ms(1000);
+		CLCD_SetPosition (1,1);
+		_delay_ms(1000);
+
+	}
+
+	return 0;
+}
